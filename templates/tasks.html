@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Tasks | Study Task Tracker{% endblock %}
+{% block content %}
+  <h1>Tasks</h1>
+
+  <form method="POST" class="card">
+    <label>Add a task</label>
+    <input name="title" placeholder="e.g., Update README with AI involvement" />
+    <button class="btn" type="submit">Add</button>
+  </form>
+
+  <ul class="list">
+    {% for t in tasks %}
+      <li class="item">
+        <span class="{{ 'done' if t.done else '' }}">{{ t.title }}</span>
+        <a class="link" href="{{ url_for('toggle', task_id=loop.index0) }}">
+          {{ 'Undo' if t.done else 'Done' }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
