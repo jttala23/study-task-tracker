@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Study Task Tracker{% endblock %}
+
+{% block content %}
+  <h1>Dashboard</h1>
+  <p>Total tasks: <strong>{{ total }}</strong></p>
+  <p>Completed: <strong>{{ done }}</strong></p>
+  <p><a class="btn" href="{{ url_for('tasks') }}">Go to Tasks</a></p>
+{% endblock %}
